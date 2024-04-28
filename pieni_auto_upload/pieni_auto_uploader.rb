@@ -28,9 +28,9 @@ class PieniAutoUploader
   def upload_all(dir)
     Dir.foreach(dir) do |file|
       next unless file =~ /^[^\.]+\.(jpg|avi)$/
-      puts dir + file
+      puts "Upload : " + dir + file
       upload(dir + file)
-      File.delete(dir + file)
+      puts "Delete : " + dir + file if File.delete(dir + file)
     end
   end
 
